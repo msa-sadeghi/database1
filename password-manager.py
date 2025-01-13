@@ -1,6 +1,8 @@
 import sqlite3
 import getpass
-
+import string
+import random
+import secrets
 from cryptography.fernet import Fernet
 
 
@@ -39,6 +41,7 @@ def register_user():
 
 
 def login():
+    global username
     username = input("enter your username: ")
     password = getpass.getpass("enter your password: ")
     cursor.execute('''SELECT * FROM user WHERE username=? 
@@ -54,21 +57,29 @@ def login():
     return False 
 
 
-import string
-import random
-print(string.ascii_letters)
-print(string.ascii_lowercase)
-print(string.ascii_uppercase)
-print(string.digits)
-print(string.punctuation)
-# def generate_strong_password(length = 12):
-#     pass
 
-# generate_strong_password()
+def generate_strong_password(length = 12):
+    pool = string.ascii_letters + string.digits + string.punctuation
+    password = "".join(secrets.choice(pool) for _ in range(length))
+    return password
+    
 
-#TODO   جدول ماشین
-# نام
-# مدل
-# سال ساخت
-# رنگ
-# همه ماشین های مدل 1400 به بعد را استخراج کنید
+
+def change_password():
+    if not login():
+        return 
+    new_password = getpass.getpass("enter the new password: ")
+    if not new_password:
+        new_password = generate_strong_password()
+        print(f"new strong password is {new_password}")
+        
+    encrypted_pass = f.encrypt(new_password.encode()).decode()
+    cursor.execute("""
+                   UPDATE user SET password=? WHERE username=?
+                   """, (encrypted_pass, username))
+    conn.commit()
+    print("your password changed  successfully")
+    
+        
+change_password()       
+    
