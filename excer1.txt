@@ -7,4 +7,9 @@ INSERT 5 shipper
 
 SELECT ShipperName = 'sara'
 
-d
+CREATE TABLE  Category
+CategoryID	CategoryName	Description
+
+دسته بندی محصولات فروشگاه
+
+INSERT SOME PRODUCT CATEGORIES(3 or more)
