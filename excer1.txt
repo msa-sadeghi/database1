@@ -1,0 +1,8 @@
+shipper
+
+ShipperID	ShipperName	  Phone
+
+INSERT 5 shipper
+
+
+SELECT ShipperName = 'sara'
