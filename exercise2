@@ -1,0 +1,18 @@
+برنامه ای بنویسید
+که جدول زیر را ایجاد نماید
+
+اسم جدول
+Sport
+
+فیلدهای جدول
+
+id   name   country    year    olympic   
+
+
+SELECT
+SELECT TOP 5
+INSERT INTO
+DELETE FROM
+UPDATE
+
+مقادیر نام و ... را از ورودی دریافت نماید
