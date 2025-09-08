@@ -6,5 +6,8 @@ from db import Database
 
 app  = QApplication(sys.argv)
 login = LoginForm()
-login.show()
-sys.exit(app.exec_())
+
+if login.exec_() == LoginForm.Accepted:
+    print("login success")
+else:
+    print("not valid")
