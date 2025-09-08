@@ -14,7 +14,7 @@ class LoginForm(QDialog):
         username = self.ui.lineEdit.text()
         password = self.ui.lineEdit_2.text()
         if username == "admin" and password == "1234":
-            QMessageBox.information(self,  "خوش آمدید", "ورود موفقیت آمیز!")
+            # QMessageBox.information(self,  "خوش آمدید", "ورود موفقیت آمیز!")
             self.accept()
 
         else:
