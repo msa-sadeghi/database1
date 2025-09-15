@@ -27,6 +27,6 @@ class Database:
         self.cursor.close()
         self.conn.close()
 
-d = Database()
-# d.execute('INSERT INTO classes VALUES(DEFAULT, %s, %s, %s)', ('dovom', 2020, 'this is class dovaom'))
-print(d.fetchone('select * from classes where name=%s', ('aval',)))
+# d = Database()
+# # d.execute('INSERT INTO classes VALUES(DEFAULT, %s, %s, %s)', ('dovom', 2020, 'this is class dovaom'))
+# print(d.fetchone('select * from classes where name=%s', ('aval',)))
