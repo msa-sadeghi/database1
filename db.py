@@ -30,3 +30,8 @@ class Database:
 # d = Database()
 # # d.execute('INSERT INTO classes VALUES(DEFAULT, %s, %s, %s)', ('dovom', 2020, 'this is class dovaom'))
 # print(d.fetchone('select * from classes where name=%s', ('aval',)))
+
+
+# rows = d.fetchall('SELECT * FROM students')
+# for row_num, row in enumerate(rows):
+#     print(row_num, row)

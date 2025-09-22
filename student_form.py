@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(807, 783)
+        Dialog.resize(1007, 783)
         self.label = QtWidgets.QLabel(Dialog)
         self.label.setGeometry(QtCore.QRect(70, 30, 161, 71))
         font = QtGui.QFont()
@@ -61,7 +61,7 @@ class Ui_Dialog(object):
         self.delete_button.setFont(font)
         self.delete_button.setObjectName("delete_button")
         self.table_students = QtWidgets.QTableWidget(Dialog)
-        self.table_students.setGeometry(QtCore.QRect(10, 270, 791, 491))
+        self.table_students.setGeometry(QtCore.QRect(10, 270, 1007, 591))
         self.table_students.setObjectName("table_students")
         self.table_students.setColumnCount(0)
         self.table_students.setRowCount(0)
