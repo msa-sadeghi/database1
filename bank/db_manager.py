@@ -19,3 +19,21 @@ class DatabaseManager:
             print("Connection pool created successfully")
         except:
             print("error in creating connection pool")
+
+    def get_connection(self):
+        return self._connection_pool.getconn()
+    
+    def return_connection(self, connection):
+        self._connection_pool.putconn(connection)
+
+    def execute_query(self, query, params=None):
+        conn = self.get_connection()
+        try:
+            with conn.cursor() as cursor:
+                cursor.execute(query, params)
+                cursor.commit()
+                return cursor.fetchall() if cursor.description else None
+        except Exception as error:
+            conn.rollback()
+        finally:
+            self.return_connection(conn)
