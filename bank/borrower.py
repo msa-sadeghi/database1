@@ -6,8 +6,8 @@ class Borrower(BaseModel):
     def create(self, data):
         query ="""
                 INSERT INTO borrowers
-                (national_code, first_name, last_name, father_name
-                birth_date, phone, mobile, address, postal_code, 
+                (national_code, first_name, last_name, father_name,
+                birth_date, phone, mobile, address, postal_code
                 ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
                 RETURNING id
                 """
@@ -17,3 +17,40 @@ class Borrower(BaseModel):
             data['address'],  data['postal_code']
         )
         return self.db.execute_query(query, params)
+    def update(self, id, data):
+        query = """
+            UPDATE borrowers SET 
+            first_name = %s, last_name = %s, phone = %s,
+            mobile = %s, address = %s
+            WHERE id = %s    
+        """
+        params = (
+            data['first_name'], data['last_name'], data['phone'], data['mobile'], data['address'], id
+        )
+        return self.db.execute_query(query, params)
+    def search(self, keyword):
+        query = """
+            SELECT * FROM borrowers
+            WHERE national_code LIKE %s
+            OR first_name LIKE %s
+            OR last_name LIKE %s
+            OR phone LIKE %s   
+        """
+        
+        return self.db.execute_query(query, (keyword,))
+    
+
+d = {
+    'national_code' : '123455',
+    'first_name' : "sara",
+    'last_name' : "sabouri",
+    'father_name' : "saber",
+    'birth_date' : "2010-01-01",
+    'phone' : "0213435",
+    'mobile' : "0939399",
+    'address' : "tehran",
+    'postal_code' : "123444"
+}
+
+b = Borrower()
+print(b.create(d))
