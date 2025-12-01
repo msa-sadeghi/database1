@@ -40,17 +40,17 @@ class Borrower(BaseModel):
         return self.db.execute_query(query, (keyword,))
     
 
-d = {
-    'national_code' : '123455',
-    'first_name' : "sara",
-    'last_name' : "sabouri",
-    'father_name' : "saber",
-    'birth_date' : "2010-01-01",
-    'phone' : "0213435",
-    'mobile' : "0939399",
-    'address' : "tehran",
-    'postal_code' : "123444"
-}
 
-b = Borrower()
-print(b.create(d))
+b  = Borrower()
+data= {
+}
+data['national_code'] = "12345677" 
+data['first_name'] = "alireza" 
+data['last_name'] = "rezaei" 
+data['father_name'] = "javad"
+data['birth_date'] = "2020-01-01"
+data['phone'] = "123333"
+data['mobile'] = "222222" 
+data['address'] = "teh"  
+data['postal_code'] = "000000000"
+b.create(data)
