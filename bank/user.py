@@ -27,7 +27,9 @@ class User(BaseModel):
         params = (data['full_name'], data['role'], data['is_active'], id)
         return self.db.execute_query(query, params)
     
-    def get_by_username(self, username):
+    def get_by_username(self,username):
         query = "SELECT * FROM users WHERE username = %s LIMIT 1"
         params = (username,)
-        return self.db.fetch_one(query, params)
+        return self.db.execute_query(query, params)
+
+
