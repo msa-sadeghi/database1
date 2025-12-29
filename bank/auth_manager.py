@@ -26,5 +26,4 @@ class AuthManager:
         self.currect_user = None
 
 
-a = AuthManager()
-print(a.login("sara", "1234sdfsdf5"))
+

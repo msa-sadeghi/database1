@@ -1,7 +1,9 @@
 from PyQt5.QtWidgets import QApplication
-from design import LoginWindow
+from design import LoginWindow, MainWindow
 
 app = QApplication([])
 window = LoginWindow()
-window.show()
+if window.exec_():
+    main = MainWindow()
+    main.show()
 app.exec_()
